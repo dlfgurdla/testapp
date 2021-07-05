@@ -40,7 +40,9 @@ const reducer = (state = initstate, action) => {
     case POST_UPDATE:
       return {};
     case POST_DELETE:
-      return {};
+      return {
+        posts: state.posts.filter((post) => post.id != action.payload),
+      };
     default:
       return state;
   }
